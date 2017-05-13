@@ -9,4 +9,8 @@ object ScalaGreetings extends App{
     print(s"$i, ")
   }
   println("Scala Rocks!!!")
+
+  for (i <- 1 until 3) {
+    print(s"$i, ")
+  }
 }
