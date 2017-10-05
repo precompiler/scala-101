@@ -17,6 +17,14 @@ object ClassDemo extends App{
   val b = new B()
   println(b.x)
   println(b.y)
+
+  val h1 = new Human("Scott")
+  h1.listen()
+
+//  val h2 = new Human("Tiger") with Friend  listen method conflicts
+//  h2.listen()
+  val xm = new Xman("Logan")
+  xm.listen()
 }
 
 class VideoCard(val brand: String) {
@@ -53,5 +61,19 @@ class B extends A {
   y = "y1"
   val y1: String = y
 }
+
+trait Friend {
+  val name: String
+  def listen() = println(s"Your friend ${name} is listening")
+}
+
+class Human(val name: String) {
+  def listen() = println(s"My name is ${name}, I'm listening")
+}
+
+class Xman(override val name: String) extends Human(name) with Friend {
+  override def listen(): Unit = super[Human].listen()
+}
+
 
 
