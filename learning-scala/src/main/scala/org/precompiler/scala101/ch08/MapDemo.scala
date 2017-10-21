@@ -14,4 +14,7 @@ object MapDemo extends App{
 
   cache.get(1).map(t => println(t))
   cache.get(9).map(e => println(e))
+  val t = 1 -> "abc"
+  println(t.getClass)
+  println(t._1)
 }
