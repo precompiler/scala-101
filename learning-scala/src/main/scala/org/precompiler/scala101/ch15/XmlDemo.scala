@@ -35,4 +35,12 @@ object XmlDemo extends App {
   dummy(employees)
 
   dummy((employees \ "employee")(0))
+
+  def construct(e: (String, String)) = {
+    <employee dept={e._1}><name>{e._2}</name></employee>
+  }
+
+  val empList = List(("Finance", "John"), ("Sales", "Chris"))
+  val emps = <employees>{empList.map(construct(_))}</employees>
+  println(emps)
 }
